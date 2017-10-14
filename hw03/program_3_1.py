@@ -9,7 +9,7 @@ NumeratorCof = np.array([0.008,-0.033*np.exp(-1j*2*pi),0.05*np.exp(-2j*2*pi)\
 DenominatorCof = np.array([1,2.37*np.exp(-1j*2*pi),2.7*np.exp(-2j*2*pi)\
                            ,1.6*np.exp(-3j*2*pi),0.41*np.exp(-4j*2*pi)])
 
-worN = np.arange(0,pi,pi/(PointNum-1))
+worN = np.arange(0,4*pi,pi/(PointNum-1))
 w,h = signal.freqz(NumeratorCof,DenominatorCof,worN)
 #plot part 
 PlotTitle = [['Real part' , 'Imaginary part'],['Magnitube','Phase Spectrum']]
