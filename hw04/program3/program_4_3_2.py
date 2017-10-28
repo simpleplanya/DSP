@@ -17,10 +17,18 @@ h2=[1,-1,0,0,0]
 y2=np.convolve(y1[0:5],h2)
 
 plt.subplot(2,1,1)
-plt.stem(np.arange(len(y1)),y1)
+plt.title('$y_1[n]$')
+plt.xlabel('Time index')
+plt.ylabel('Amplitude')
+plt.stem(np.arange(len(y1[0:5])),y1[0:5])
 plt.grid()
+
 plt.subplot(2,1,2)
+plt.title('$y_2[n]$')
+plt.xlabel('Time index')
+plt.ylabel('Amplitude')
 plt.stem(np.arange(len(y2[0:5])),y2[0:5])
 plt.grid()
+plt.tight_layout()
 plt.show()
 

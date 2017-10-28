@@ -2,7 +2,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-
 Num = 50
 seq = np.arange(0,Num,1)
 Signal = 2*seq*(0.9**seq)
