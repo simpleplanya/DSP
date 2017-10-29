@@ -9,28 +9,18 @@ Created on Thu Oct 26 14:23:15 2017
 import numpy as np 
 import matplotlib.pyplot as plt 
 pi = np.pi
-omega = 8*pi
+omega = 0.8*pi
 theda = 0
-h = np.array([1,1.5,-0.8])
-sequence = np.ones(50)
+h = np.array([1.6,1.5,-0.8])
+# = np.array([1])
+#sequence = np.arange(-1,1+0.05,0.05)
+sequence = np.arange(-1,1+0.05,0.05)
 x = np.cos(omega*sequence+theda)
 y = np.convolve(x,h)
-plt.subplot(2,1,1)
-plt.title('$x[n]$')
 plt.xlabel('Time index')
 plt.ylabel('Amplitude')
-plt.stem(range(-25,25),x)
-x_tick = [i for i in range(-25,25,5)]
-x_tick.append(24)
-plt.xticks(x_tick)
-plt.subplot(2,1,2)
-plt.title('$y[n]$')
-plt.xlabel('Time index')
-plt.ylabel('Amplitude')
-plt.stem(range(-26,26),y)
-x_tick = [i for i in range(-26,24,5)]
-x_tick.append(25)
-x_tick.append(0)
-plt.xticks(x_tick)
+plt.stem(sequence,x,label='x[n]')
+plt.stem(sequence,y[:-2],markerfmt='ro',label='y[n]')
+plt.legend()
 plt.tight_layout()
 plt.show()
