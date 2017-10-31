@@ -14,6 +14,7 @@ theda = 0
 h = np.array([1.6,1.5,-0.8])
 # = np.array([1])
 #sequence = np.arange(-1,1+0.05,0.05)
+
 sequence = np.arange(-1,1+0.05,0.05)
 x = np.cos(omega*sequence+theda)
 y = np.convolve(x,h)
