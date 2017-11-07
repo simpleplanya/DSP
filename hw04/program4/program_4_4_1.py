@@ -19,22 +19,30 @@ for element in omega:
     Gp.append(y)
 
 plt.subplot(2,1,1)
-plt.plot(omega/np.pi,np.abs(Gp))
+plt.plot((omega/np.pi)[2512:3771],(np.abs(Gp))[2512:3771])
 plt.title('Magnitude Spectrum')
 plt.xlabel('$\omega$/$\pi$')
 plt.ylabel('Amplitude')
+plt.grid()
+xtick=list(np.arange(-0.2,0.3,0.1))
+xtick.append(0.1273)
+ytick=[i for i in range(0,3,1)]
+plt.xticks(xtick)
+
 plt.subplot(2,1,2)
 angle=np.angle(Gp)
-plt.plot(omega[2742:3542],angle[2742:3542])
-xtick=np.arange(-0.4,0.5,0.2)
+plt.plot((omega/pi)[2512:3771],angle[2512:3771])
+xtick=list(np.arange(-0.2,0.3,0.1))
+xtick.append(0.1273)
 ytick=[i for i in range(-2,3,2)]
 ytick.append(angle[3542])
 plt.grid()
 plt.yticks(ytick)
 plt.xticks(xtick)
 plt.title('Phase Spectrum ')
-plt.xlabel('$\omega$')
+plt.xlabel('$\omega$/$\pi$')
 plt.ylabel('Radians')
 plt.tight_layout()
+
 plt.show()
 
