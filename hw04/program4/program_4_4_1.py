@@ -12,12 +12,13 @@ import matplotlib.pyplot as plt
 h=np.array([-6.76195 ,13.456335, -6.76195])
 #h_f=np.fft.fft(h)
 t=np.array([0,1,2])
-omega = np.arange(-np.pi,np.pi,0.01)
+omega = np.arange(-2*np.pi,2*np.pi,0.001)
 Gp=[]
 for element in omega: 
     y = np.dot(h,np.exp(-1j*element*t))
     Gp.append(y)
 
+angle=np.angle(Gp)
 plt.subplot(2,1,1)
 plt.plot(omega/np.pi,np.abs(Gp))
 plt.title('Magnitude Spectrum')
