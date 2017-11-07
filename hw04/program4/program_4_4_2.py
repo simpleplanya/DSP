@@ -12,6 +12,13 @@ pi = np.pi
 omega = 0.4
 #omega=1.2
 theda = 0
+
+h = np.array([1.6,1.5,-0.8])
+# = np.array([1])
+#sequence = np.arange(-1,1+0.05,0.05)
+
+sequence = np.arange(-1,1+0.05,0.05)
+
 h = np.array([-6.76195 ,13.456335, -6.76195])
 sequence = np.arange(0,100,1)
 x = np.cos(omega*sequence+theda)

@@ -12,12 +12,17 @@ pi=np.pi
 h=np.array([-6.76195 ,13.456335, -6.76195])
 #h_f=np.fft.fft(h)
 t=np.array([0,1,2])
+<<<<<<< HEAD
 omega = np.arange(-pi,pi,0.001)
+=======
+omega = np.arange(-2*np.pi,2*np.pi,0.001)
+>>>>>>> 12c897288894e8e4753a79289230639dc2222c9a
 Gp=[]
 for element in omega: 
     y = np.dot(h,np.exp(-1j*element*t))
     Gp.append(y)
 
+angle=np.angle(Gp)
 plt.subplot(2,1,1)
 plt.plot((omega/np.pi)[2512:3771],(np.abs(Gp))[2512:3771])
 plt.title('Magnitude Spectrum')
