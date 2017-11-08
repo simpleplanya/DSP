@@ -12,7 +12,6 @@ pi=np.pi
 h=np.array([-6.76195 ,13.456335, -6.76195])
 #h_f=np.fft.fft(h)
 t=np.array([0,1,2])
-<<<<<<< HEAD
 omega = np.arange(-pi,pi,0.001)
 =======
 omega = np.arange(-2*np.pi,2*np.pi,0.001)
