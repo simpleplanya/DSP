@@ -23,7 +23,6 @@ plt.ylabel('Amplitude')
 plt.stem(sequence[:50],x[:50],label='x[n]')
 plt.subplot(2,1,2)
 plt.title('y[n],$\omega_0=1.2$')
-<<<<<<< HEAD
 plt.xlabel('Time index')
 plt.ylabel('Amplitude')
 plt.stem(sequence[:50],y[:50],markerfmt='ro')
