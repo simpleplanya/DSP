@@ -21,12 +21,9 @@ def IDFT(X_n):
     for i in N:
         x_n.append(np.dot(X_n,np.exp((-1j*2*np.pi*k*i)/len(N)))/len(N))
     return x_n
-
-
-    
+ 
 if __name__ == '__main__':
     pi = np.pi
-    fs = 1000
     sequence = np.arange(0,16)
     x_n = np.cos(6*pi*sequence/16)
     k = np.arange(0,16)
@@ -34,11 +31,18 @@ if __name__ == '__main__':
     N=16
     omega_k = np.arange(-1.5*pi,1.5*pi,3*pi/N)
     x_n_DTFT = DTFT(x_n,omega,sequence)
+    #use omega_k do DTFT
     Y_N =DTFT(x_n,omega_k,sequence)
-    Y_N_iff =np.fft.ifft(x_n_DTFT)
-   
+    Y_N_iff =np.fft.ifft(Y_N)
+    
     #plt.plot(Y_N_iff)
-    #plt.plot(omega/pi,np.abs(DTFT(x_n,omega,sequence)))
+    #plt.plot(np.abs(DTFT(x_n,omega,sequence)))
     #plt.stem(x_n)
-    plt.stem(np.real(Y_N_iff)[0:16],markerfmt='ro')
+    plt.stem(np.real(Y_N_iff),markerfmt='ro')
     plt.stem(x_n)
+    #plt.stem(Y_N)
+    
+    
+    
+    
+    
