@@ -26,10 +26,8 @@ plt.title('y[n],$\omega_0=1.2$')
 plt.xlabel('Time index')
 plt.ylabel('Amplitude')
 plt.stem(sequence[:50],y[:50],markerfmt='ro')
-=======
 plt.ylabel('Amplitude')
 #plt.stem(sequence[200:250],x[200:250])
 plt.stem(sequence[200:250],y[200:250],markerfmt='ro')
->>>>>>> 12c897288894e8e4753a79289230639dc2222c9a
 plt.tight_layout()
 plt.show()

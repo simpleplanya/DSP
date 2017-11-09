@@ -23,14 +23,6 @@ def DFT(x_n):
         X_n.append(np.dot(x_n,np.exp(-1j*2*pi*element*sequence/M)))
     return np.asarray(X_n)
 
-def IDFT(X_n):
-    x_n=[]
-    k=np.arange(len(X_n))
-    N=np.arange(len(X_n))
-    for i in N:
-        x_n.append(np.dot(X_n,np.exp((-1j*2*np.pi*k*i)/len(N)))/len(N))
-    return np.asarray(x_n)
-
 if __name__ == '__main__':
     #initialization 
     x=np.array([1,2,3])
@@ -41,7 +33,6 @@ if __name__ == '__main__':
     x_e5=zero_padding(x,5)
     x_e6=zero_padding(x,6)
     x_e7=zero_padding(x,7)
-    
     h_e3=zero_padding(h_n,3)
     h_e4=zero_padding(h_n,4)
     h_e5=zero_padding(h_n,5)
@@ -54,6 +45,13 @@ if __name__ == '__main__':
     for i in range (len(x_space)):
         y_space.append(np.fft.ifft(DFT(x_space[i])*DFT((h_space[i]))))
     
+    for j in range(len(x_space)):
+        print('y1[n]:')
+        print(y1)
+        print('y[n]:')
+        print(np.real(y_space[j]).round(3))
+    
+    '''
     plt.figure(1)
     plt.stem(y_space[0],label='M=3',markerfmt='r>',)
     plt.stem(y1,label='$y_1[n]$',markerfmt='b^')    
@@ -79,7 +77,7 @@ if __name__ == '__main__':
     plt.stem(y1,label='$y_1[n]$',markerfmt='b^')    
     plt.legend()   
     plt.show()
-
+    '''
 
 
 

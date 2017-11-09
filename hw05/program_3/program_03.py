@@ -8,6 +8,7 @@ Created on Tue Nov  7 16:13:49 2017
 
 import numpy as np 
 import matplotlib.pyplot as plt 
+np.set_printoptions(threshold=np.nan)
 def DTFT(x_n,omega,sequence):
     X_n=[]
     for element in omega:
@@ -27,20 +28,24 @@ if __name__ == '__main__':
     sequence = np.arange(0,16)
     x_n = np.cos(6*pi*sequence/16)
     k = np.arange(0,16)
-
-    N=14
-    omega_k = np.arange(0,2*pi,2*pi/N)
-    #use omega_k do DTFT
-    Y_N =DTFT(x_n,omega_k,sequence)
-    Y_N_iff =np.fft.ifft(Y_N)
+    N=18
+    print('x[n]:')
+    print(x_n.round(3))
+    N_list=[16,18,12]
+    for N in N_list:
+        omega_k = np.arange(0,2*pi,2*pi/N)
+        #use omega_k do DTFT
+        Y_N =DTFT(x_n,omega_k,sequence)
+        Y_N_iff =np.fft.ifft(Y_N)
+        print('N=%d' %N,':')
+        print(np.real(Y_N_iff).round(3))
+        
     
-    #plt.plot(Y_N_iff)
-    #plt.plot(np.abs(DTFT(x_n,omega,sequence)))
-    #plt.stem(x_n)
+    
+    '''
     plt.stem(np.real(Y_N_iff),markerfmt='r^')
     plt.stem(x_n)
-    #plt.stem(Y_N)
-    
+    '''
     
     
     

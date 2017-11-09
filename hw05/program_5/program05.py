@@ -11,10 +11,10 @@ def zero_padding(seq,extendSize):
     return padding
 
 import numpy as np 
-import matplotlib.pyplot as plt 
-x=np.array([-2,4,1,-1,3,5])
+#import matplotlib.pyplot as plt 
+x=np.array([-2,4,1,-1,3,5],dtype='float32')
 N=len(x)
-h=np.array([1,-2,4,-1,1])
+h=np.array([1,-2,4,-1])
 M=len(h)
 x1=np.array([3,5,-2,4,1,-1,3,5])
 x2=np.array([-1,3,5,-2,4,1,-1,3,5])
@@ -30,6 +30,16 @@ y1_DFT=np.fft.fft(y1_)
 y2_DFT=np.fft.fft(y2_)
 y3_DFT=np.fft.fft(y2_)
 H_e=np.fft.fft(h_e)
+y_DFT_space=[y1_DFT,y2_DFT,y3_DFT]
+for i in y_DFT_space:
+    print('x:')
+    print(x)
+    print('\hat x_1')
+    print(np.real(np.fft.ifft(i/H_e)).round(3))
+    
+    
+
+'''
 plt.figure(1)
 plt.stem(np.fft.ifft(y1_DFT/H_e),markerfmt='r^',label='$\hat x_1[n]$')
 plt.stem(x,label='x[n]')
@@ -47,8 +57,7 @@ plt.stem(np.fft.ifft(y3_DFT/H_e),markerfmt='r^',label='$\hat x_3[n]$')
 plt.stem(x,label='x[n]')
 plt.legend()
 plt.grid()
-
-
+'''
 
 
 

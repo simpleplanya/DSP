@@ -11,7 +11,6 @@ Created on Wed Nov  8 11:03:23 2017
 import numpy as np 
 import matplotlib.pyplot as plt 
 global pi
-
 def zero_padding(seq,extendSize):
     padding=np.zeros(extendSize)
     padding[:len(seq)]=seq    
@@ -35,28 +34,29 @@ def theta(omega,k,N):
     omega = omega-(2*pi*k/N)
     return (np.sin(omega*N/2)/(N*np.sin(omega/2)))*np.exp(-1j*omega*((N-1)/2))
 
+def DFT_Interpolation(X_n,omega):
+    Interpolation=[]
+    N=len(X_n)
+    k=np.arange(0,N)    
+    for element in omega:
+        Interpolation.append(np.dot(X_n,theta(element,k,N))) 
+    return Interpolation
+
 if __name__ == '__main__':
     pi=np.pi 
     N=16
     sequence = np.arange(0,N)
     x_n = np.cos(6*pi*sequence/N)
-    M=16
     #DFT
-    X_n=np.fft.fft(x_n)
-    DFT_Interpolation=[]
-    N=len(sequence)
-    k=np.arange(0,N)    
-    omega=np.arange(pi,3*pi,2*pi/1024)
-    for element in omega:
-        '''
-        first_item=np.sin((element*N-2*pi*k)/2)/ np.sin((element*N-2*pi*k)/2*N)
-        second_item=np.exp(-1j*(element-(2*pi*k/N))*((N-1)/2))
-        inter_poly=first_item*second_item
-        '''
-        DFT_Interpolation.append(np.dot(X_n,theta(element,k,N))) 
-        
-    plt.plot(omega/pi,np.abs(DTFT(x_n,omega,sequence)))   
-    plt.plot(omega/pi,np.abs(DFT_Interpolation))
+    X_n=DFT(x_n)
+    omega=np.arange(-1.5*pi,1.5*pi,3*pi/1024)
+    plt.title('DTFT from DFT by Interpolation')
+    plt.plot(omega/pi,np.abs(DTFT(x_n,omega,sequence)),'-',linewidth=3,label='DTFT') 
+    plt.plot(omega/pi,np.abs(DFT_Interpolation(X_n,omega)),'r:',linewidth=2,label='DTFT from DFT by Interpolation')
+    plt.xlabel('$\omega/\pi$')
+    plt.ylabel('Amplitude')
+    plt.legend()
+    plt.tight_layout()
     plt.show()
 
 
