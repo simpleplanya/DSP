@@ -8,7 +8,6 @@ Created on Tue Nov  7 14:54:59 2017
 
 import numpy as np 
 import matplotlib.pyplot as plt 
-global pi
 
 def DTFT(x_n,omega,sequence):
     DTFT=[]
@@ -20,14 +19,14 @@ def DFT(x_n,k,sequence):
     for element in k :
         DFT.append(np.dot(x_n,np.exp(-1j*2*pi*element*sequence/16)))
     return DFT
-
+    
 if __name__ == '__main__':
     pi = np.pi
     sequence = np.arange(0,16)
     x_n = np.cos(6*pi*sequence/16)
     k = np.arange(0,16)
+    
     X_k=DFT(x_n,k,sequence)    
-   
     DFT_Interpolation=[]
     N=len(sequence)    
     omega=np.arange(-1.5*pi,1.5*pi+0.001,0.05)

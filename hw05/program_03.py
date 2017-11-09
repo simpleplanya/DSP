@@ -27,10 +27,9 @@ if __name__ == '__main__':
     sequence = np.arange(0,16)
     x_n = np.cos(6*pi*sequence/16)
     k = np.arange(0,16)
-    omega=np.arange(-1.5*pi,1.5*pi+0.001,0.1)
-    N=16
-    omega_k = np.arange(-1.5*pi,1.5*pi,3*pi/N)
-    x_n_DTFT = DTFT(x_n,omega,sequence)
+
+    N=14
+    omega_k = np.arange(0,2*pi,2*pi/N)
     #use omega_k do DTFT
     Y_N =DTFT(x_n,omega_k,sequence)
     Y_N_iff =np.fft.ifft(Y_N)
@@ -38,7 +37,7 @@ if __name__ == '__main__':
     #plt.plot(Y_N_iff)
     #plt.plot(np.abs(DTFT(x_n,omega,sequence)))
     #plt.stem(x_n)
-    plt.stem(np.real(Y_N_iff),markerfmt='ro')
+    plt.stem(np.real(Y_N_iff),markerfmt='r^')
     plt.stem(x_n)
     #plt.stem(Y_N)
     

@@ -14,7 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 x=np.array([-2,4,1,-1,3,5])
 N=len(x)
-h=np.array([1,-2,4,-1])
+h=np.array([1,-2,4,-1,1])
 M=len(h)
 x1=np.array([3,5,-2,4,1,-1,3,5])
 x2=np.array([-1,3,5,-2,4,1,-1,3,5])

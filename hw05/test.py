@@ -33,7 +33,7 @@ def DTFT(x_n,omega,sequence):
 
 def theta(omega,k,N):
     omega = omega-(2*pi*k/N)
-    return np.sin(omega*N/2)/N*np.sin(omega/2)*np.exp(-1j*omega*((N-1)/2))
+    return (np.sin(omega*N/2)/(N*np.sin(omega/2)))*np.exp(-1j*omega*((N-1)/2))
 
 if __name__ == '__main__':
     pi=np.pi 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     DFT_Interpolation=[]
     N=len(sequence)
     k=np.arange(0,N)    
-    omega=np.arange(pi,3*pi,2*pi/512)
+    omega=np.arange(pi,3*pi,2*pi/1024)
     for element in omega:
         '''
         first_item=np.sin((element*N-2*pi*k)/2)/ np.sin((element*N-2*pi*k)/2*N)

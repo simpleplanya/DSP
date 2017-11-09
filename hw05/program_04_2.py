@@ -31,8 +31,6 @@ def IDFT(X_n):
         x_n.append(np.dot(X_n,np.exp((-1j*2*np.pi*k*i)/len(N)))/len(N))
     return np.asarray(x_n)
 
-
-
 if __name__ == '__main__':
     #initialization 
     x=np.array([1,2,3])

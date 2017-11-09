@@ -34,4 +34,5 @@ if __name__ == '__main__':
     M=512
     x_n_padding=zero_padding(x_n,M)
     plt.plot(np.arange(0,M)/M,np.abs(DFT(x_n_padding)))
+    #x axis 0~2pi
     plt.show()
