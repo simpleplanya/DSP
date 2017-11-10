@@ -7,7 +7,7 @@ Created on Tue Nov  7 16:13:49 2017
 """
 
 import numpy as np 
-import matplotlib.pyplot as plt 
+#import matplotlib.pyplot as plt 
 np.set_printoptions(threshold=np.nan)
 def DTFT(x_n,omega,sequence):
     X_n=[]
@@ -40,7 +40,6 @@ if __name__ == '__main__':
         print('N=%d' %N,':')
         print(np.real(Y_N_iff).round(3))
         
-    
     
     '''
     plt.stem(np.real(Y_N_iff),markerfmt='r^')

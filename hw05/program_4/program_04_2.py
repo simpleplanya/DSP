@@ -44,11 +44,12 @@ if __name__ == '__main__':
     y_space=[]
     for i in range (len(x_space)):
         y_space.append(np.fft.ifft(DFT(x_space[i])*DFT((h_space[i]))))
-    
+        
+    print('y1[n]:')
+    print(y1)
     for j in range(len(x_space)):
-        print('y1[n]:')
-        print(y1)
-        print('y[n]:')
+        
+        print('M=:',j+3)
         print(np.real(y_space[j]).round(3))
     
     '''

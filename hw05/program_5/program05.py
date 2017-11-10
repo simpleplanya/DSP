@@ -31,12 +31,13 @@ y2_DFT=np.fft.fft(y2_)
 y3_DFT=np.fft.fft(y2_)
 H_e=np.fft.fft(h_e)
 y_DFT_space=[y1_DFT,y2_DFT,y3_DFT]
+print('x:')
+print(x)
+counter = 1
 for i in y_DFT_space:
-    print('x:')
-    print(x)
-    print('\hat x_1')
+    print('x_%d' %counter)
     print(np.real(np.fft.ifft(i/H_e)).round(3))
-    
+    counter+=1
     
 
 '''
