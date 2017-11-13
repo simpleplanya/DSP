@@ -36,7 +36,7 @@ if __name__ == '__main__':
     plt.setp(baseline,'linestyle','None')
     N=512
     x_n_padding=zero_padding(x_n,N)
-    plt.plot(np.arange(0,2*pi,2*pi/N)/pi,np.abs(DFT(x_n_padding)),label='N-point DFT of x[n]')
+    plt.plot(np.arange(0,2*pi,2*pi/N)/pi,np.abs(DFT(x_n_padding)),label='DTFT of x[n]')
     #x axis 0~2pi
     plt.title('N=%d' %N)
     plt.legend()
