@@ -23,19 +23,22 @@ def DFT(x_n):
     for element in k :
         X_n.append(np.dot(x_n,np.exp(-1j*2*pi*element*sequence/M)))
     return X_n
+
 if __name__ == '__main__':
     pi=np.pi 
-    N=16
-    sequence = np.arange(0,N)
-    x_n = np.cos(6*pi*sequence/N)
     M=16
-    markerline, stemlines, baseline =plt.stem(np.arange(0,2*pi,2*pi/M)/pi,np.abs(DFT(x_n)) ,fillstyle='none'    )
+    sequence = np.arange(0,M)
+    x_n = np.cos(6*pi*sequence/M)
+    N=16
+    markerline, stemlines, baseline =plt.stem(np.arange(0,2*pi,2*pi/N)/pi,np.abs(DFT(x_n)) ,fillstyle='none',markerfmt='ro',label='M-point DFT of x[n]')
     plt.setp(markerline, 'markerfacecolor' , 'w')
-    M=512
-    x_n_padding=zero_padding(x_n,M)
-    plt.plot(np.arange(0,2*pi,2*pi/M)/pi,np.abs(DFT(x_n_padding)))
+    plt.setp(stemlines,'linestyle','None')
+    N=512
+    x_n_padding=zero_padding(x_n,N)
+    plt.plot(np.arange(0,2*pi,2*pi/N)/pi,np.abs(DFT(x_n_padding)),label='N-point DFT of x[n]')
     #x axis 0~2pi
-    plt.title('M=%d' %M)
+    plt.title('N=%d' %N)
+    plt.legend()
     plt.xlabel('$\omega/\pi $')
     plt.ylabel('Amplitude')
     plt.show()
