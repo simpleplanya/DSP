@@ -16,8 +16,10 @@ if __name__ == '__main__':
     rate,sig = wavfile.read('hello.wav')
     #plt.plot(sig[24000:25750])
     fs=44100
-    f, t, Sxx = signal.spectrogram(sig,fs=44100,window='hamming',nperseg=200,noverlap=199,nfft=1000)
+    f, t, Sxx = signal.spectrogram(sig,fs=44100,window='hamming',nperseg=50,noverlap=49,nfft=50)
+    plt.title('R=50')
     plt.pcolormesh(t, f, Sxx)   
+    plt.colorbar()
     plt.ylim(0,2500)
     plt.xlim(0.4,1.1)
     plt.ylabel('Frequency [Hz]')

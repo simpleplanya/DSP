@@ -15,8 +15,10 @@ if __name__ == '__main__':
     omega_0 = 10*pi*10**-5
     seq = np.arange(0,20000)    
     x_n = np.cos(omega_0 *(seq*seq))
-    f, t, Sxx = signal.spectrogram(x_n,window='hamming',nperseg=200,noverlap=199)
+    f, t, Sxx = signal.spectrogram(x_n,window='hamming',nperseg=50,noverlap=49,nfft=50)
+    plt.title('R = 50')
     plt.pcolormesh(t, f, Sxx)   
+    plt.colorbar()
     plt.ylabel('Frequency [Hz]')
     plt.xlabel('Time [sec]')
     plt.show()
