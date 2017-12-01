@@ -25,6 +25,8 @@ plt.title('Lag index -28~28')
 
 #corSignal的size為191，所以中心點在96,但因為陣列內容從0開始，所以最大值存放在位置95
 markerline, stemlines, baseline = plt.stem(np.arange(-28,29),corSignal[67:124])
+
+
 plt.setp(markerline, 'markerfacecolor' , 'w')
 plt.xticks(np.arange(-30,31,5))
 plt.yticks(np.arange(np.ceil(min(corSignal[68:124])),np.ceil(max(corSignal[68:124])),10))

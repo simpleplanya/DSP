@@ -28,7 +28,6 @@ if __name__ == '__main__':
     sequence = np.arange(0,16)
     x_n = np.cos(6*pi*sequence/16)
     k = np.arange(0,16)
-    N=18
     print('x[n]:')
     print(x_n.round(3))
     N_list=[16,18,12]
