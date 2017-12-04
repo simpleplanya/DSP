@@ -14,6 +14,6 @@ import numpy as np
 b = [1,2.0]
 a=[1,0.4,-0.12]
 
-#r,p,k=residue(b,a)
+r,p,k=residue(b,a)
 x = [1,0,0,0,0,0,0,0,0,0,0]
-
+i_z=lfilter(b,a,x)

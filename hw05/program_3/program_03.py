@@ -34,7 +34,7 @@ if __name__ == '__main__':
     for N in N_list:
         omega_k = np.arange(0,2*pi,2*pi/N)
         #use omega_k do DTFT
-        Y_N =DTFT(x_n,omega_k,sequence)
+        Y_N =np.fft.fft(x_n,omega_k,sequence)
         Y_N_iff =np.fft.ifft(Y_N)
         print('N=%d' %N,':')
         print(np.real(Y_N_iff).round(3))
