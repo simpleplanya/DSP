@@ -20,7 +20,7 @@ def detection_zeroTozero(zero,pole):
             Czero=np.delete(Czero,Zidx)
     return  Czero,Cpole 
 
-five_order =((-0.45)**5) + (0.9**5)
+five_order = (((-0.45)**5) + (0.9)**5)
 six_order = -1*((0.9*(-0.45)**5)-0.45*((0.9)**5) )
 numerator = [0,0,0,0,0,five_order,six_order] 
 denominator =[1,-0.45,-0.405,0,0,0,0]
