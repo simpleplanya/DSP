@@ -16,10 +16,12 @@ x2=[3,6,7,1,2,8,10]
 h = [1,2,3]
 y1=np.convolve(x1,h)
 y2=np.convolve(x2,h)
+#draw y1
 plt.stem(range(0,len(y1)),y1,label='$y_1[n]$')
 plt.title('Non-Causal System')
 plt.xlabel('Time index')
 plt.ylabel('Amplitude')
+#draw y2
 plt.stem(range(-1,len(y2)-1),y2,label='$y_2[n]$',markerfmt='ro')
 plt.xticks(range(-1,len(y2)))
 plt.legend()
