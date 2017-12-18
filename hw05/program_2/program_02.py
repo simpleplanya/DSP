@@ -6,11 +6,10 @@ Created on Wed Nov  8 11:03:23 2017
 @author: rocky
 """
 
-
-
 import numpy as np 
 import matplotlib.pyplot as plt 
 global pi
+
 def zero_padding(seq,extendSize):
     padding=np.zeros(extendSize)
     padding[:len(seq)]=seq    
@@ -24,6 +23,7 @@ def DFT(x_n):
     for element in k :
         X_n.append(np.dot(x_n,np.exp(-1j*2*pi*element*sequence/M)))
     return X_n
+
 def DTFT(x_n,omega,sequence):
     DTFT=[]
     for element in omega:
