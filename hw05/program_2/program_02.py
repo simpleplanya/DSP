@@ -24,7 +24,10 @@ def DTFT(x_n,omega,sequence):
     for element in omega:
         DTFT.append(np.dot(x_n,np.exp(-1j*element*sequence)))
     return DTFT
-
+'''
+DFT_Interpolation 與 theta function是在實現作業中interpolation formula
+而這邊的interpolation formula是使用原文課本209頁5.42式,是作業5-2公式(c)經整理過後的公式
+'''
 def theta(omega,k,N):
     omega = omega-(2*pi*k/N)
     return (np.sin(omega*N/2)/(N*np.sin(omega/2)))*np.exp(-1j*omega*((N-1)/2))
@@ -41,6 +44,7 @@ if __name__ == '__main__':
     pi=np.pi 
     N=16
     sequence = np.arange(0,N)
+    #建立x_n序列
     x_n = np.cos(6*pi*sequence/N)
     #DFT
     X_n=DFT(x_n)
