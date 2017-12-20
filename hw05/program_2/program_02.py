@@ -10,11 +10,6 @@ import numpy as np
 import matplotlib.pyplot as plt 
 global pi
 
-def zero_padding(seq,extendSize):
-    padding=np.zeros(extendSize)
-    padding[:len(seq)]=seq    
-    return padding
-
 def DFT(x_n):
     M=len(x_n)
     sequence = np.arange(0,M)
