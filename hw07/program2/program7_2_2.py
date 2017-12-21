@@ -18,7 +18,6 @@ if __name__ =='__main__':
     pi= np.pi 
     omega = np.linspace(0,2*pi,1024)
     X=np.exp(-1j*3*omega)*(6 - 6*cos_exp(omega) +4*cos_exp(omega,2) -2*cos_exp(omega,3))
-    
     H_1 = 1
     H_2 = np.exp(-1j*3*omega)
     H_3 = (0.4-np.exp(-1j*omega))/(1-0.4*np.exp(-1j*omega))
