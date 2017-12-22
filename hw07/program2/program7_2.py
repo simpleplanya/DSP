@@ -39,11 +39,11 @@ if __name__ =='__main__':
     Y_1=X*H_1
     Y_2=X*H_2
     Y_3=X*H_3
+    #tested angle functrion
     ang=np.arctan(np.sin(omega)/(-2.5+np.cos(omega)))-np.arctan(np.sin(omega)/(-0.4+np.cos(omega)))
     plt.plot(omega/pi,ang)
     plt.figure(3)
     PlotResponse(H_3,'H_3') 
-
 '''    
     plt.figure(1)
     PlotResponse(H_1,'H_1')

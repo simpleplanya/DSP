@@ -9,11 +9,16 @@ Created on Thu Dec 21 10:54:32 2017
 import numpy as np 
 import matplotlib.pyplot as plt
 global pi
+from scipy.signal import lfilter 
 
-from numpy.fft import ifft
 def cos_exp(omega,constant=1):
     return (np.exp(1j*constant*omega) + np.exp(-1j*constant*omega) ) /2
 
+def impz(outputLen,b,a):
+    x = np.zeros(outputLen)
+    x[0]=1
+    return lfilter(b,a,x)    
+    
 if __name__ =='__main__':
     pi= np.pi 
     omega = np.linspace(0,2*pi,1024)
@@ -24,4 +29,17 @@ if __name__ =='__main__':
     Y_1=X*H_1
     Y_2=X*H_2
     Y_3=X*H_3
-    plt.stem(np.real(ifft(Y_1,n=10)))
+    #Y_1
+    y_1 = impz(7,[-1,2,-3,6,-3,2,-1],1)
+    print('y_1 = ',y_1)
+    #plt.stem(impz(7,[-1,2,-3,6,-3,2,-1],1))
+    #Y_2
+    y_2 = impz(10,[0,0,0,-1,2,-3,6,-3,2,-1],1)
+    print('y_2 = ',y_2)
+    #plt.stem(impz(10,[0,0,0,-1,2,-3,6,-3,2,-1],1))
+    b=-2.5
+    a=-0.4
+    #Y_3
+    y_3 = impz(7,[-0.4,-0.4*b+0.8,0.8*b-1.2,2.4-1.2*b,2.4*b-1.2,0.8-1.2*b,0.8*b-0.4,-0.4*b],[1,a,0,0,0,0,0,0,0,0])
+    print('y_3 = ' ,y_3)
+    #plt.stem(impz(7,[-0.4,-0.4*b+0.8,0.8*b-1.2,2.4-1.2*b,2.4*b-1.2,0.8-1.2*b,0.8*b-0.4,-0.4*b],[1,a,0,0,0,0,0,0,0,0]))
