@@ -34,6 +34,8 @@ if __name__ =='__main__':
     plt.title('Phase Spectrum ')
     plt.xlabel('$\omega$/$\pi$')
     plt.ylabel('Radians')
+    P_extraticks=[-3.14,3.14]
+    plt.yticks(list(plt.yticks()[0]) + P_extraticks)
     plt.legend(loc='upper right')
     plt.tight_layout()
     plt.show()
