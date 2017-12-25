@@ -14,20 +14,22 @@ def cos_exp(omega,constant=1):
     return (np.exp(1j*constant*omega) + np.exp(-1j*constant*omega) ) /2
 
 def PlotResponse(X,H,Y):
+    extraticks=[1]
     for idx , ele in enumerate(H): 
         plt.figure(idx)
         plt.subplot(2,1,1)
         plt.plot(omega/pi,np.abs(X),'b',label='$X(e^{j\omega})$')
         plt.plot(omega/pi,np.abs(ele),'r--',label='$H_'+str(idx+1)+'$'+'$(e^{j\omega})$')
         plt.plot(omega/pi,np.abs(Y[idx]),'y--',label='$Y_'+str(idx+1)+'$'+'$(e^{j\omega})$')
+        plt.yticks(list(plt.yticks()[0]) + extraticks)
         plt.title(' Magnitude Spectrum')
         plt.xlabel('$\omega$/$\pi$')
         plt.ylabel('Amplitude')
         plt.legend()
         plt.subplot(2,1,2)
-        plt.plot(omega/pi,np.angle(X),'b',label='$X(e^{j\omega})$')
-        plt.plot(omega/pi,np.angle(ele),'r--',label='$H_'+str(idx+1)+'$'+'$(e^{j\omega})$')
-        plt.plot(omega/pi,np.angle(Y[idx]),'y--',label='$Y_'+str(idx+1)+'$'+'$(e^{j\omega})$')
+        plt.plot(omega/pi,np.angle(X)/pi,'b',label='$X(e^{j\omega})$')
+        plt.plot(omega/pi,np.angle(ele)/pi,'r--',label='$H_'+str(idx+1)+'$'+'$(e^{j\omega})$')
+        plt.plot(omega/pi,np.angle(Y[idx])/pi,'y--',label='$Y_'+str(idx+1)+'$'+'$(e^{j\omega})$')
         plt.title('Phase Spectrum ')
         plt.xlabel('$\omega$/$\pi$')
         plt.ylabel('Radians')

@@ -44,10 +44,6 @@ if __name__ =='__main__':
     z_h3_numerator = [0.4,0.4*b]
     z_h3_denominator = [1,a,0,0,0,0,0,0,0,0]
     #Y_3
-<<<<<<< HEAD:hw07/program2/program7_2_2.py
-    y_3 = impz(20,[-0.4,-0.4*b+0.8,0.8*b-1.2,2.4-1.2*b,2.4*b-1.2,0.8-1.2*b,0.8*b-0.4,-0.4*b],[1,a,0,0,0,0,0,0,0,0])
-=======
     y_3 = impz(7,polymul(z_x,z_h3_numerator,),z_h3_denominator)
->>>>>>> e70dc0ecc6e912ebf65f3c5531bca3ece82b8dc1:hw07/program2/program7_2_2/program7_2_2.py
     print('y_3 = ' ,y_3)
     #plt.stem(impz(7,[-0.4,-0.4*b+0.8,0.8*b-1.2,2.4-1.2*b,2.4*b-1.2,0.8-1.2*b,0.8*b-0.4,-0.4*b],[1,a,0,0,0,0,0,0,0,0]))
