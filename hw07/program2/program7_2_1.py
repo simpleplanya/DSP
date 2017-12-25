@@ -44,6 +44,11 @@ if __name__ =='__main__':
     plt.plot(omega/pi,ang)
     plt.figure(3)
     PlotResponse(H_3,'H_3') 
+    
+    plt.figure(6)
+    PlotResponse(Y_3,'Y_3') 
+    plt.figure(7)
+    PlotResponse(X,'X') 
 '''    
     plt.figure(1)
     PlotResponse(H_1,'H_1')
