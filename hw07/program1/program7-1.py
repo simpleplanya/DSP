@@ -14,9 +14,9 @@ def cos_exp(omega,constant=1):
 
 if __name__ =='__main__':
     pi= np.pi 
-    omega = np.linspace(0,2*pi,1024)
+    omega = np.linspace(0,2*pi,200)
     X=np.exp(-1j*3*omega)*(6 - 6*cos_exp(omega) +4*cos_exp(omega,2) -2*cos_exp(omega,3) )
-    H=(4*(1.09+0.6*cos_exp(omega))*(1.16-0.8*cos_exp(omega))) /(1.04-0.2*cos_exp(omega))*(1.25+cos_exp(omega))
+    H=(4*(1.09+0.6*cos_exp(omega))*(1.16-0.8*cos_exp(omega)))/((1.04-0.2*cos_exp(omega))*(1.25+cos_exp(omega)))
     Y=X*H
     plt.subplot(2,1,1)
     plt.plot(omega/pi,np.abs(H),'g',label='$|H(e^{j\omega})|^2$')
